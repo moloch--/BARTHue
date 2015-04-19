@@ -1,0 +1,3 @@
+[submodule "BARTpy"]
+	path = BARTpy
+	url = https://github.com/moloch--/BARTpy.git
