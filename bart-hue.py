@@ -38,7 +38,7 @@ def get_color_for_etd(etd):
 def bart_hue(station_name, destination, bridge_ip,
              light_name, poll_interval=30.0):
     ''' Adjusts a Hue light based on a train schedule '''
-    print('BART Hue is starting up ...')
+    print("BARTHue is starting up ...")
     bart = BART()
     bridge = pyhue.Bridge(bridge_ip, HUE_USERNAME)
     light = next(light for light in bridge.lights if light.name == light_name)
@@ -49,7 +49,7 @@ def bart_hue(station_name, destination, bridge_ip,
             light.xy = get_color_for_etd(departure.trains[0].minutes)
         else:
             light.on = False
-        print('Updated state, sleeping...')
+        print("Updated state, sleeping...")
         time.sleep(float(poll_interval))
 
 
@@ -78,4 +78,7 @@ if __name__ == '__main__':
                         dest='poll_interval',
                         default=30.0,
                         type=float)
-    bart_hue(**vars(parser.parse_args()))
+    try:
+        bart_hue(**vars(parser.parse_args()))
+    except KeyboardInterrupt:
+        print("User stop, have a nice day!")
