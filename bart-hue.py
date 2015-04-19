@@ -14,11 +14,12 @@ from rgb import Converter
 from BARTpy import BART
 
 HUE_USERNAME = 'newdeveloper'
+BART_API_KEY = 'ZJVD-UYTM-IKBQ-DT35'
 
 # RGB Color Tuples
 RED = (255, 0, 0)
-BLUE = (0, 0, 255)
 GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
 
 
 def get_color_for_etd(etd):
@@ -39,7 +40,7 @@ def bart_hue(station_name, destination, bridge_ip,
              light_name, poll_interval=30.0):
     ''' Adjusts a Hue light based on a train schedule '''
     print("BARTHue is starting up ...")
-    bart = BART()
+    bart = BART(BART_API_KEY)
     bridge = pyhue.Bridge(bridge_ip, HUE_USERNAME)
     light = next(light for light in bridge.lights if light.name == light_name)
     while True:
