@@ -136,4 +136,4 @@ if __name__ == '__main__':
     try:
         _main(parser.parse_args())
     except KeyboardInterrupt:
-        print("User stop, have a nice day!")
+        print("\r[!] User stop, have a nice day!")
