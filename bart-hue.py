@@ -51,14 +51,14 @@ def bart_hue_loop(bart, station_name, destination, light, poll_interval):
                 light.xy = get_color_for_etd(departure.trains[0].minutes)
             else:
                 light.on = False
-            logging.info("Succesfully updated state")
+            logging.info("Successfully updated state")
         except KeyboardInterrupt:
             raise
         except:
             errors += 1
             logging.exception("Error #%d while updating state" % errors)
             if MAX_ERRORS <= errors:
-                logging.fatal("Reached maxium error count")
+                logging.fatal("Reached maximum error count")
                 os._exit(-1)
         finally:
             time.sleep(float(poll_interval))
@@ -83,7 +83,7 @@ def bart_hue(station_name, destination, bridge_ip,
 
 def _main(args):
     '''
-    Handles various administrivia then strarts the main loop
+    Handles various administrivia then starts the main loop
     '''
     if args.fork:
         pid = os.fork()
