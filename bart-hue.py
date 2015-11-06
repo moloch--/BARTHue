@@ -83,7 +83,7 @@ def bart_hue(station_name, destination, bridge_ip,
 
 def _main(args):
     '''
-    Handles various administrivia then strarts the main loop
+    Handles various administrivia then starts the main loop
     '''
     if args.fork:
         pid = os.fork()
